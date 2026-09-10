@@ -1,0 +1,274 @@
+/* ===========================================================
+   Friendship Hotel — base.css
+   Global reset, design tokens, navbar, footer, shared components
+   =========================================================== */
+
+:root {
+  --color-primary: #7a1f2b;      /* deep maroon */
+  --color-primary-dark: #5c1620;
+  --color-accent: #c9a24b;       /* warm gold */
+  --color-accent-light: #e6cf8f;
+  --color-bg: #faf7f2;
+  --color-surface: #ffffff;
+  --color-text: #2b2320;
+  --color-text-muted: #6f645c;
+  --color-border: #e8ddce;
+
+  --font-heading: "Georgia", "Playfair Display", serif;
+  --font-body: "Helvetica Neue", Arial, sans-serif;
+
+  --radius: 10px;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.10);
+  --transition: 0.2s ease-in-out;
+}
+
+/* ---------- Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-primary-dark);
+  line-height: 1.25;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+main {
+  flex: 1;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.nav-links a {
+  color: var(--color-text);
+  font-weight: 500;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+
+.btn:hover {
+  background-color: var(--color-primary-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- Shared page layout ---------- */
+.page-section {
+  max-width: 960px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.page-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid var(--color-accent);
+  display: inline-block;
+  padding-bottom: 0.4rem;
+}
+
+.page-section h2 {
+  font-size: 1.4rem;
+  margin: 1.75rem 0 0.75rem;
+  color: var(--color-primary);
+}
+
+/* ---------- Shared form styling ---------- */
+.form-box {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-box label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 0.75rem;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.25);
+}
+
+.form-box textarea {
+  resize: vertical;
+}
+
+.form-box .btn {
+  margin-top: 1.5rem;
+  align-self: flex-start;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background-color: var(--color-primary-dark);
+  color: #f1e9df;
+  text-align: center;
+  padding: 1.75rem 1rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--color-accent-light);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-surface);
+    flex-direction: column;
+    gap: 0;
+    display: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .form-box {
+    max-width: 100%;
+  }
+}
