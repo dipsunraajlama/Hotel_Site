@@ -12,7 +12,7 @@ app.secret_key = "change-this-to-a-random-secret-key"  # needed for flash messag
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "your_mysql_password",
+    "password": "",
     "database": "friendship_hotel",
 }
 
